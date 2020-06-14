@@ -11,17 +11,12 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            int x1 = 10;
-            int y1 = 10;
-            char sym1 = '*';
-            Draw(x1, y1, sym1);
+            Point p1 = new Point();
+            p1.x = 10;
+            p1.y = 10;
+            p1.sym = '+';
+            p1.Draw();
             Console.ReadLine();
-        }
-
-        private static void Draw(int x1, int y1, char sym1)
-        {
-            Console.SetCursorPosition(x1, y1);
-            Console.Write(sym1);
         }
     }
 }
