@@ -22,10 +22,50 @@ namespace Snake
             y = _y;
             sym = _sym;
         }
+
+        internal void Move(int snakePoint, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.UP:
+                    {
+                        y += snakePoint;
+                        break;
+                    }
+                case Direction.DOWN:
+                    {
+                        y += snakePoint;
+                        break;
+                    }
+                case Direction.RIGHT:
+                    {
+                        x += snakePoint;
+                        break;
+                    }
+                case Direction.LEFT:
+                    {
+                        x -= snakePoint;
+                        break;
+                    }
+            }
+        }
+
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
+        }
+
+        public override string ToString()
+        {
+            return x + " , " + y + " , " + sym;
         }
     }
 }
