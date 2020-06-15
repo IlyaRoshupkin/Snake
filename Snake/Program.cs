@@ -13,27 +13,22 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Field field = new Field(100, 30);
-            HorisontalLine horisontalLine = new HorisontalLine(10, 20, 5, '$');
-            VerticalLine verticalLine = new VerticalLine(15, 0, 10, '#');
-            Point t = new Point(15, 10, '*');
-
-            horisontalLine.Draw();
-            verticalLine.Draw();
-
-            Snake snake = new Snake(t, 10, Direction.RIGHT);
+            Point tail = new Point(10, 10, '*');
+            Snake snake = new Snake(tail, 10, Direction.RIGHT);
             snake.Draw();
-            snake.Move();
-            Console.ReadLine();
-            snake.Move();
-            Console.ReadLine();
-            snake.Move();
-            Console.ReadLine();
-            snake.Move();
-            Console.ReadLine();
-            snake.Move();
-            Console.ReadLine();
 
+            while (true)
+            {
+                snake.Move();
+                Thread.Sleep(300);
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key);
+                }
+            }
+
+            
         }
     }
 }

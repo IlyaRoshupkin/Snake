@@ -29,7 +29,7 @@ namespace Snake
             {
                 case Direction.UP:
                     {
-                        y += snakePoint;
+                        y -= snakePoint;
                         break;
                     }
                 case Direction.DOWN:
