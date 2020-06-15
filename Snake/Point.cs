@@ -50,6 +50,12 @@ namespace Snake
             }
         }
 
+        internal void Clear()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(' ');
+        }
+
         public Point(Point p)
         {
             x = p.x;
