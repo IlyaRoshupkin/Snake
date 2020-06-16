@@ -32,6 +32,8 @@ namespace Snake
             head.Draw();
         }
 
+        
+
         internal void HandleKey(ConsoleKeyInfo key)
         {
             switch (key.Key)
@@ -57,6 +59,19 @@ namespace Snake
                         break;
                     }
             }
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
         }
 
         private Point GetNextPoint()

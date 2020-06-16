@@ -50,6 +50,11 @@ namespace Snake
             }
         }
 
+        internal bool IsHit(Point obj)
+        {
+            return obj.x == x  && obj.y == y;
+        }
+
         internal void Clear()
         {
             Console.SetCursorPosition(x, y);
