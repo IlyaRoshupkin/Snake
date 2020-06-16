@@ -15,5 +15,14 @@ namespace Snake
             foreach (Point p in pList)
                 p.Draw();
         }
+
+        internal bool IsHit(Point head)
+        {
+            foreach(Point p in pList)
+            {
+                return p.x == head.x || p.y == head.y;
+            }
+            return false;
+        }
     }
 }

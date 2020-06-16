@@ -14,6 +14,7 @@ namespace Snake
         static void Main(string[] args)
         {
             Field field = new Field(80, 20);
+            field.Draw();
 
             Point tail = new Point(10, 10, '*');
             Snake snake = new Snake(tail, 10, Direction.RIGHT);
@@ -25,6 +26,10 @@ namespace Snake
 
             while (true)
             {
+                if(snake.IsWallHit(field.walls) || snake.IsTailHit())
+                {
+                    break;
+                }
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -45,7 +50,14 @@ namespace Snake
                 }
             }
 
-            
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Red;
+            string text = "Game Over";
+            Console.SetCursorPosition(Console.WindowWidth / 2 - text.Length / 2, Console.WindowHeight / 2);
+            Console.WriteLine(text);
+            Console.ReadLine();
         }
+
     }
 }

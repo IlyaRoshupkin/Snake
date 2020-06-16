@@ -32,7 +32,27 @@ namespace Snake
             head.Draw();
         }
 
-        
+        internal bool IsTailHit()
+        {
+            Point head = pList.Last();
+            for(int i = 0; i < pList.Count - 1; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
+        internal bool IsWallHit(List<Figure> walls)
+        {
+            Point head = GetNextPoint();
+            foreach (Figure wall in walls)
+            {
+                if (wall.IsHit(head))
+                    return true;
+            }
+            return false;
+        }
 
         internal void HandleKey(ConsoleKeyInfo key)
         {
